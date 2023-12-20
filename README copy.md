@@ -1,7 +1,6 @@
-# yb-next14
+# yb-next-xclone
 
-- next14/ react18/ react-query5/ next-auth5/ msw2/ socket.io4/ zustand
-- 트위터 (x.com) 클론 코딩
+next14/ react18/ react-query5/ next-auth5/ msw2/ socket.io4/ zustand
 
 ### setting
 
@@ -21,7 +20,7 @@ $ yarn add -D prettier
 
 ### CSS
 
-1. tailwind : 호불호 심함, 가독성 좋지 않음.
+1. tarilwind : 호불호 심함, 가독성 좋지 않음.
 2. Styled Component or Emotion : Server Component SSR 좋지 않음.
 3. vanilla extract : windows와 문제 있음.
 4. sass
