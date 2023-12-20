@@ -36,3 +36,13 @@ $ yarn add -D prettier
 ### 인터셉팅 라우트 (Intercepting Routes)
 
 - 라우터가 다른 두개의 페이지가 같이 뜨게 하는 것.
+
+### 프라이빗 폴더 (Private folder(\_폴더))
+
+- 공통이 되는 코드가 있으면 컴포넌트를 만들어서 관리.
+
+### Server Component, Client Component
+
+- React 18에서 새롭게 생긴 개념
+- 서버 컴포넌트는 클라이언트 컴포넌트를 import 할 수 있다.
+- 클라이언트 컴포넌트는 서버 컴포넌트를 import하면 안된다. (import 하면 서버 컴포넌트가 클라이언트 컴포넌트로 바뀜.)
