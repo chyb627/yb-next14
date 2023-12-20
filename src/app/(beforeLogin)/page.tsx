@@ -1,7 +1,7 @@
-import styles from './page.module.css';
+import styles from '@/app/page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import Logo from '../../public/logo.png';
+import Logo from '../../../public/logo.png';
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
           계정 만들기
         </Link>
         <h3>이미 영차영차에 가입하셨나요?</h3>
-        <Link href="/login" className={styles.login}>
+        <Link href="/i/flow/login" className={styles.login}>
           로그인
         </Link>
       </div>
