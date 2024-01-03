@@ -2,7 +2,7 @@
 
 import style from './logoutButton.module.css';
 
-export default function LogOutButton() {
+export default function LogoutButton() {
   const me = {
     // 임시로 내 정보 있는것처럼
     id: 'test',
@@ -10,7 +10,9 @@ export default function LogOutButton() {
     image: '/profile.png',
   };
 
-  const onLogout = () => null;
+  const onLogout = () => {
+    console.log('logout');
+  };
 
   return (
     <button className={style.logOutButton} onClick={onLogout}>

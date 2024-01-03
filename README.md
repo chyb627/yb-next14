@@ -2,6 +2,7 @@
 
 - next14/ react18/ react-query5/ next-auth5/ msw2/ socket.io4/ zustand
 - 트위터 (x.com) 클론 코딩
+- app router 사용
 
 ### setting
 
