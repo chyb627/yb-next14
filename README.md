@@ -47,3 +47,12 @@ $ yarn add -D prettier
 - React 18에서 새롭게 생긴 개념
 - 서버 컴포넌트는 클라이언트 컴포넌트를 import 할 수 있다.
 - 클라이언트 컴포넌트는 서버 컴포넌트를 import하면 안된다. (import 하면 서버 컴포넌트가 클라이언트 컴포넌트로 바뀜.)
+
+### msw (Mock Service Worker) setting
+
+```bash
+# 설치 (public 폴더에)
+$ npx msw init public/ --save
+$ yarn add -D msw
+
+```
