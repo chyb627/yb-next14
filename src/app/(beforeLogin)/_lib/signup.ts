@@ -1,0 +1,44 @@
+/* eslint-disable import/no-anonymous-default-export */
+'use server';
+
+import { redirect } from 'next/navigation';
+
+export default async (prevState: any, formData: FormData) => {
+  if (!formData.get('id') || !(formData.get('id') as string)?.trim()) {
+    return { message: 'no_id' };
+  }
+  if (!formData.get('name') || !(formData.get('name') as string)?.trim()) {
+    return { message: 'no_name' };
+  }
+  if (!formData.get('password') || !(formData.get('password') as string)?.trim()) {
+    return { message: 'no_password' };
+  }
+  if (!formData.get('image')) {
+    return { message: 'no_image' };
+  }
+
+  let shouldRedirect = false;
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
+      method: 'post',
+      body: formData,
+      credentials: 'include', // 쿠키 전달
+    });
+    console.log(response.status);
+    console.log(await response.json());
+
+    if (response.status === 403) {
+      return { message: 'user_exists' };
+    }
+
+    shouldRedirect = true;
+  } catch (error) {
+    console.log(error);
+    return;
+  }
+
+  if (shouldRedirect) {
+    redirect('/home'); // redirect는 try/catch문 안에서 쓰면 안된다.
+  }
+};
