@@ -1,6 +1,7 @@
 import { http, HttpResponse, StrictResponse } from 'msw';
 import { faker } from '@faker-js/faker';
 
+// 랜덤날짜
 function generateDate() {
   const lastWeek = new Date(Date.now());
   lastWeek.setDate(lastWeek.getDate() - 7);
@@ -14,7 +15,6 @@ const User = [
   { id: 'youngcha', nickname: '영차', image: '/logo.png' },
   { id: 'chacha', nickname: '차차', image: faker.image.avatar() },
 ];
-const Posts = [];
 
 export const handlers = [
   http.post('/api/login', () => {
