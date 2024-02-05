@@ -1,12 +1,15 @@
-export async function getPostRecommends() {
-  const res = await fetch('http://localhost:6628/api/postRecommends', {
+type Props = { pageParam?: number };
+export async function getPostRecommends({ pageParam }: Props) {
+  const res = await fetch(`http://localhost:6628/api/postRecommends?cursor=${pageParam}`, {
     next: {
       tags: ['posts', 'recommends'],
     },
-    // cache: 'no-store' // 캐싱을 안할려면 다음을 넣어줘야함
   });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
   if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
   }
 
