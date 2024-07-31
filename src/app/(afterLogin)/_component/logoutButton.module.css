@@ -1,4 +1,4 @@
-.logOutButton {
+.LogoutButton {
     width: 66px;
     height: 66px;
     padding: 12px;
@@ -19,10 +19,11 @@
 }
 .logOutUserImage img {
     width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 @media all and (min-width: 1300px) {
-    .logOutButton {
+    .LogoutButton {
         width: 258px;
     }
     .logOutUserName {
@@ -33,7 +34,7 @@
         font-weight: bold;
     }
 }
-.logOutButton:hover {
+.LogoutButton:hover {
     background-color: rgba(15,20,25, 0.1);
     border-radius: 33px;
 }

@@ -1,5 +1,4 @@
 'use client';
-
 import style from './signup.module.css';
 import onSubmit from '@/app/(beforeLogin)/_lib/signup';
 import BackButton from './BackButton';

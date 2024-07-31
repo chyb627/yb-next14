@@ -11,7 +11,7 @@ export async function middleware() {
 }
 
 // 미들웨어로 로그인 한 사람만 접속을 할 수 있게 하는 등의 기능을 만들 수 있다.
-// 미들웨어를 적용할 목록
+// 미들웨어를 적용할 라우트
 export const config = {
   matcher: ['/compose/tweet', '/home', '/explore', '/messages', '/search'],
 };

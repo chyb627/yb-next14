@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import style from '@/app/(afterLogin)/layout.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../../../public/logo.png';
+import Logo from '../../../public/images/logo.png';
 import NavMenu from '@/app/(afterLogin)/_component/NavMenu';
 import LogoutButton from './_component/LogoutButton';
 import TrendSection from './_component/TrendSection';

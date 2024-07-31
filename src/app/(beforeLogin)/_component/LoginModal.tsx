@@ -17,9 +17,9 @@ export default function LoginModal() {
 
     try {
       await signIn('credentials', {
-        username: id,
+        username: id, // username과 password는 next-auth에서 고정이다.
         password,
-        redirect: false,
+        redirect: false, // 서버쪽 redirect이므로 client 컴포넌트에서는 false로 해준다.
       });
       router.replace('/home');
     } catch (err) {

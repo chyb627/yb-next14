@@ -8,11 +8,10 @@ import { Suspense } from 'react';
 import Loading from './loading';
 
 export default async function Home() {
-  // throw '으하하하';
-
   return (
     <main className={style.main}>
       <TabProvider>
+        {/* 추천/팔로우중 탭 */}
         <Tab />
 
         <PostForm />

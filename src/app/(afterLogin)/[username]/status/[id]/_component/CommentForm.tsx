@@ -9,7 +9,7 @@ type Props = {
   id: string;
 };
 export default function CommentForm({ id }: Props) {
-  const [content, setContent] = useState('');
+  const [content] = useState('');
   const imageRef = useRef<HTMLInputElement>(null);
   const { data: me } = useSession();
 

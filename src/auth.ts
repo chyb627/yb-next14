@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import KaKaoProvider from 'next-auth/providers/kakao';
+// import KaKaoProvider from 'next-auth/providers/kakao';
 
 export const {
   handlers: { GET, POST },
@@ -14,7 +14,7 @@ export const {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        const authResponse = await fetch(`${process.env.AUTH_URL}/api/login`, {
+        const authResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export const {
 
         // 로그인 성공
         const user = await authResponse.json();
-        console.log('user', user);
+        console.log('user::', user);
         return {
           email: user.id,
           name: user.nickname,

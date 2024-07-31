@@ -17,7 +17,7 @@ export default function LogoutButton() {
   if (!me?.user) return null;
 
   return (
-    <button className={style.logOutButton} onClick={onLogout}>
+    <button className={style.LogoutButton} onClick={onLogout}>
       <div className={style.logOutUserImage}>
         <img src={me.user?.image as string} alt={me.user?.email as string} />
       </div>

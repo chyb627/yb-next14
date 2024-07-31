@@ -11,7 +11,7 @@ import Comments from '@/app/(afterLogin)/[username]/status/[id]/_component/Comme
 type Props = {
   params: { id: string };
 };
-export default async function Page({ params }: Props) {
+export default async function ProfieDetail({ params }: Props) {
   const { id } = params;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({ queryKey: ['posts', id], queryFn: getSinglePost });

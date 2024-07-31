@@ -10,28 +10,29 @@ function generateDate() {
     to: Date.now(),
   });
 }
-
 // 딜레이
 const delay = (ms: number) =>
   new Promise((res) => {
     setTimeout(res, ms);
   });
-
+// 유저
 const User = [
-  { id: 'bincha', nickname: '빈차', image: '/profile.png' },
-  { id: 'youngcha', nickname: '영차', image: '/logo.png' },
+  { id: 'youngcha', nickname: '영차', image: '/images/profile.png' },
+  { id: 'bincha', nickname: '빈차', image: faker.image.avatar() },
   { id: 'chacha', nickname: '차차', image: faker.image.avatar() },
 ];
 
+// mock api
 export const handlers = [
   http.post('/api/login', () => {
     console.log('로그인');
-    return HttpResponse.json(User[1], {
+    return HttpResponse.json(User[0], {
       headers: {
         'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/',
       },
     });
   }),
+
   http.post('/api/logout', () => {
     console.log('로그아웃');
     return new HttpResponse(null, {
@@ -40,8 +41,10 @@ export const handlers = [
       },
     });
   }),
+
+  // 회원가입
   http.post('/api/users', async ({ request }) => {
-    console.log('회원가입');
+    console.log('회원가입', request);
     // return HttpResponse.text(JSON.stringify('user_exists'), {
     //   status: 403,
     // })
@@ -51,6 +54,7 @@ export const handlers = [
       },
     });
   }),
+
   http.get('/api/postRecommends', async ({ request }) => {
     await delay(3000);
     const url = new URL(request.url);
@@ -105,7 +109,8 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/followingPosts', async ({ request }) => {
+
+  http.get('/api/followingPosts', async () => {
     await delay(3000);
     return HttpResponse.json([
       {
@@ -145,7 +150,8 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/search/:tag', ({ request, params }) => {
+
+  http.get('/api/search/:tag', ({ params }) => {
     const { tag } = params;
     return HttpResponse.json([
       {
@@ -185,7 +191,8 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/users/:userId/posts', ({ request, params }) => {
+
+  http.get('/api/users/:userId/posts', ({ params }) => {
     const { userId } = params;
     return HttpResponse.json([
       {
@@ -225,7 +232,8 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/users/:userId', ({ request, params }): StrictResponse<any> => {
+
+  http.get('/api/users/:userId', ({ params }): StrictResponse<any> => {
     const { userId } = params;
     const found = User.find((v) => v.id === userId);
     if (found) {
@@ -238,7 +246,8 @@ export const handlers = [
       },
     );
   }),
-  http.get('/api/posts/:postId', ({ request, params }): StrictResponse<any> => {
+
+  http.get('/api/posts/:postId', ({ params }): StrictResponse<any> => {
     const { postId } = params;
     if (parseInt(postId as string) > 10) {
       return HttpResponse.json(
@@ -260,7 +269,8 @@ export const handlers = [
       createdAt: generateDate(),
     });
   }),
-  http.get('/api/posts/:postId/comments', ({ request, params }) => {
+
+  http.get('/api/posts/:postId/comments', ({ params }) => {
     const { postId } = params;
     return HttpResponse.json([
       {
@@ -300,10 +310,12 @@ export const handlers = [
       },
     ]);
   }),
-  http.get('/api/followRecommends', ({ request }) => {
+
+  http.get('/api/followRecommends', () => {
     return HttpResponse.json(User);
   }),
-  http.get('/api/trends', ({ request }) => {
+
+  http.get('/api/trends', () => {
     return HttpResponse.json([
       { tagId: 1, title: '원차', count: 1264 },
       { tagId: 2, title: '투차', count: 1264 },
